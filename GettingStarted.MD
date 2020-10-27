@@ -51,6 +51,7 @@ Magnum to create a seed cluster on demand.
 
 Continuous automated rollout in docker containers
 
++ Base install with MaaS, Netbox, Linux, KVM on Bare Metal
 + OSISM with kolla-ansible, ceph-ansible, infra tooling (database, msgQ, ...)
 + Monitoring tools (netdata, prometheus, ...) for operations
 + Lifecycle Management & Updates (patchman)
