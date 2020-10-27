@@ -2,9 +2,9 @@ TARGETS=GettingStarted.html
 
 default: $(TARGETS)
 
-.MD.html:
+%.html: %.MD
 	multimarkdown $< > $@
 
 
 clean:
-	rm -f $(TARGETS
+	rm -f $(TARGETS)
