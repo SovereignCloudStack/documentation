@@ -9,7 +9,7 @@ author: Mathias Fechner
 
 # First Steps
 
-## the URLs for access
+## URLs for access
 
  + UI (Horizon): https://gx-scs.okeanos.dev/
  + auth_url (Keystone): https://gx-scs.okeanos.dev:5000
@@ -26,7 +26,10 @@ author: Mathias Fechner
  + DNS (Designate)
  + Loadbalancer (Octavia)
  + Object Storage (Swift and S3 protocol via RadosGW, see below)
- + Secret Mangement (Barbican) and Cloud Container Engine (magnum) in preparation
+ + Secrets Management (Barbican) and Cloud Container Engine (magnum) in preparation
+ + A standard set of current Linux cloud images (Ubuntu, Debian, Fedora, CentOS, OpenSUSE,
+   Cirros, Clear Linux) with the standard cloud-init included for processing of user_data
+   to customize them.
 
 ### Ceph N - Release (Nautilus)
 
@@ -41,7 +44,7 @@ We have done successful PoCs with Rancher, Kubermatic and SAP Gardener, and
 the automation for them can be found on https://github.com/SovereignCloudStack/
 
 We have currently people working on the OpenStack k8s cluster API provider
-and Gardener to integrate something out of the box, possibly leveraging
+and on Gardener to integrate something out of the box, possibly leveraging
 Magnum to create a seed cluster on demand.
 
 ### Automation Tools
@@ -51,6 +54,7 @@ Continuous automated rollout in docker containers
 + OSISM with kolla-ansible, ceph-ansible, infra tooling (database, msgQ, ...)
 + Monitoring tools (netdata, prometheus, ...) for operations
 + Lifecycle Management & Updates (patchman)
++ Validation (CI) with smoke tests, refstack, openstack-health-monitor
 
 ### OVN OpenVirtualNetwork SDN
 
@@ -139,7 +143,7 @@ via swift or via s3 protocol.
   [OSISM](https://github.com/osism/testbed "some terraform examples")
 
 
-## UI
+## Authentication (UI)
 
 For your login you will need:
 
@@ -150,6 +154,8 @@ For your login you will need:
 in case of Keycloak you will need just
 Username and Password.
 
+Contact us if you want to use keycloak to federate identities from another identity provider.
+
 ## References
 
 [OpenStack](https://www.openstack.org "OpenStack Site")
@@ -159,3 +165,4 @@ Username and Password.
 [OpenvSwitch](https://www.openvswitch.org "OpenvSwitch Side")
 [ansible](https://docs.ansible.com/ansible/latest/collections/openstack/cloud/index.html "Ansible Module OpenStack" )
 [Terraform](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs "OpenStack Terraform Provider")
+[cloud-init](https://cloudinit.readthedocs.io/en/latest/ "cloud-init documentation")
