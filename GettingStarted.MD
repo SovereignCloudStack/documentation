@@ -46,12 +46,11 @@ Magnum to create a seed cluster on demand.
 
 ### Automation Tools
 
-Automated rollout in docker containers
+Continuous automated rollout in docker containers
 
-+ OSISM with kolla-ansible, ceph-ansible
++ OSISM with kolla-ansible, ceph-ansible, infra tooling (database, msgQ, ...)
 + Monitoring tools (netdata, prometheus, ...) for operations
-+ Lifecycle Management and Updates
-
++ Lifecycle Management & Updates (patchman)
 
 ### OVN OpenVirtualNetwork SDN
 
@@ -62,7 +61,7 @@ Automated rollout in docker containers
 ### Debian Based Family (Debian, Ubuntu)
 
 ```console
-   apt install python3-openstackclient
+apt install python3-openstackclient
 ```
 
 ### RPM Based Family (Red Hat Enterprise Linux 8, CentOS 8, or FedorcoreOS)
@@ -74,7 +73,7 @@ dnf install python-openstackclient
 
 ### RPM Based Family (Red Hat Enterprise Linux 7, CentOS 7)
 
-```shell
+```console
 yum install centos-release-openstack-ussuri;
 yum config-manager --set-enabled PowerTools;
 yum install python-openstackclient
@@ -83,19 +82,19 @@ yum install python-openstackclient
 ### SuSE
 
 ```console
-    zypper install python-PROJECTclient
+zypper install python-PROJECTclient
 ```
 
 ### MacOS
 
 ```console
-    brew install python-openstackclient
+brew install python-openstackclient
 ```
 
 ### PIP
 
 ```console
-    pip install python-openstackclient
+pip install python-openstackclient
 ```
 
 ## Windows
@@ -107,11 +106,11 @@ C:\>pip install python-PROJECTclient
 ## the Openstack CLI
 
 ```console
-    # openstack
-    (openstack) server ...
-    (openstack) network ...
-    (openstack) volume  ...
-    (openstack) image ...
+# openstack
+(openstack) server ...
+(openstack) network ...
+(openstack) volume  ...
+(openstack) image ...
 ```
 
 Continue "..." with enter to show all options
@@ -139,17 +138,16 @@ via swift or via s3 protocol.
   [OSISM](https://github.com/osism/testbed "some terraform examples")
 
 
-## the UI
+## UI
 
-for your login you will need:
+For your login you will need:
 
 + Domain
 + Username
 + Password
 
 in case of Keycloak you will need just
-
-Username and Password
+Username and Password.
 
 ## References
 
