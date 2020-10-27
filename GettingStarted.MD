@@ -1,11 +1,11 @@
 ---
-title:  Getting Started Gaia-X Demonstrator
+title:  Getting Started Gaia-X Demonstrator @ PlusServer
 version: 2020-10-23-001
 author: Mathias Fechner
 
 ---
 
-# Getting Started for the Gaia-X Demonstrator
+# Getting Started for the Gaia-X Demonstrator @ PlusServer
 
 # First Steps
 
@@ -82,6 +82,7 @@ yum install python-openstackclient
 ### SuSE
 
 ```console
+#zypper ar -f obs://Cloud:OpenStack:Ussuri/ Cloud:OpenStack:Ussuri
 zypper install python-PROJECTclient
 ```
 
