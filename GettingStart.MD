@@ -1,42 +1,57 @@
 ---
-title:  Getting Start Gaia-X Demonstrator
+title:  Getting Started Gaia-X Demonstrator
 version: 2020-10-23-001
 author: Mathias Fechner
 
 ---
 
-# Getting Start for the Gaia-X Demonstrator
+# Getting Started for the Gaia-X Demonstrator
 
 # First Steps
 
 ## the URLs for access
 
- + UI: https://gx-scs.okeanos.dev/auth/login/?next=/
- + auth_url: https://gx-scs.okeanos.dev:5000
+ + UI (Horizon): https://gx-scs.okeanos.dev/
+ + auth_url (Keystone): https://gx-scs.okeanos.dev:5000
  + keycloak_url: https://gx-iam.okeanos.dev:5000
+ + S3 endpoint (same as swift from catalog): https://gx-scs.okeanos.dev:8080
 
 ## Software Components
 
 ### Openstack U - Release (Ussuri)
 
- + Authentication (Keystone)
- + Block-storage (Cinder)
- + Compute (Nova)
+ + Core Components (Keystone - auth, Cinder - block storage,
+   Nova - compute, Glance - images, Neutron - networking)
+ + Heat (Orchestration)
  + DNS (Designate)
  + Loadbalancer (Octavia)
- + Network (Neutron)
+ + Object Storage (Swift and S3 protocol via RadosGW, see below)
+ + Secret Mangement (Barbican) and Cloud Container Engine (magnum) in preparation
 
 ### Ceph N - Release (Nautilus)
 
-+ Block-store
-+ Object-store (S3)
++ Block-storage
++ Object-store (S3 and Swift via radosgw)
+
+### K8S Cluster Management
+
+We have not yet aligned on a standard built-in solution, as none of the
+Open Source solutions fully uses and implements the k8s cluster API really well.
+We have done successful PoCs with Rancher, Kubermatic and SAP Gardener, and
+the automation for them can be found on https://github.com/SovereignCloudStack/
+
+We have currently people working on the OpenStack k8s cluster API provider
+and Gardener to integrate something out of the box, possibly leveraging
+Magnum to create a seed cluster on demand.
 
 ### Automation Tools
 
-+ OSISM
-+ kolla
-+ kolla-ansible
-+ ansible-ceph
+Automated rollout in docker containers
+
++ OSISM with kolla-ansible, ceph-ansible
++ Monitoring tools (netdata, prometheus, ...) for operations
++ Lifecycle Management and Updates
+
 
 ### OVN OpenVirtualNetwork SDN
 
@@ -53,16 +68,16 @@ author: Mathias Fechner
 ### RPM Based Family (Red Hat Enterprise Linux 8, CentOS 8, or FedorcoreOS)
 
 ```console
-    dnf install https://www.rdoproject.org/repos/rdo-release.el8.rpm
-    dnf install python-openstackclient
+dnf install https://www.rdoproject.org/repos/rdo-release.el8.rpm;
+dnf install python-openstackclient
 ```
 
 ### RPM Based Family (Red Hat Enterprise Linux 7, CentOS 7)
 
-```console
-    yum install centos-release-openstack-ussuri
-    yum config-manager --set-enabled PowerTools
-    yum install python-openstackclient
+```shell
+yum install centos-release-openstack-ussuri;
+yum config-manager --set-enabled PowerTools;
+yum install python-openstackclient
 ```
 
 ### SuSE
@@ -89,15 +104,6 @@ author: Mathias Fechner
 C:\>pip install python-PROJECTclient
 ```
 
-## Automation
-
-+ ansible
-  os_auth, os_server
-
-+ terraform
-  openstack/provider
-  [OSISM](https://github.com/osism/testbed "some terraform examples")
-
 ## the Openstack CLI
 
 ```console
@@ -110,6 +116,29 @@ C:\>pip install python-PROJECTclient
 
 Continue "..." with enter to show all options
 
+Under the item [API:](https://gx-scs.okeanos.dev/project/api_access/# "API Credentials") you will find the 
+OpenRC file to source in to your environment or alternatively (better) you add the downloadable
+`clouds.yaml` (and `secure.yaml`) to your `~/.config/openstack/` directory and set `OS_CLOUD` or
+pass `--os-cloud=`.
+
+## Object Storage (S3)
+
+Create AWS like credentials with `openstack ec2 credentials create`.
+If you use libs3, store the access field in `S3_ACCESS_KEY_ID` and the secret field in
+`S3_SECRET_ACCESS_KEY` and set `S3_HOSTNAME=gx-scs.okeanos.dev:8080`.
+You will see the same buckets (containers) and objects whether you access your object store 
+via swift or via s3 protocol.
+
+## Automation
+
++ ansible
+  os_auth, os_server
+
++ terraform
+  openstack/provider
+  [OSISM](https://github.com/osism/testbed "some terraform examples")
+
+
 ## the UI
 
 for your login you will need:
@@ -121,8 +150,6 @@ for your login you will need:
 in case of Keycloak you will need just
 
 Username and Password
-
-Under the item [API:](https://gx-scs.okeanos.dev/project/api_access/# "API Credentials") you will find the OpenRC file to source in to your environment alternative you can also you can use the the Clouds.yaml
 
 ## References
 
