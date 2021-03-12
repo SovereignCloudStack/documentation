@@ -1,6 +1,6 @@
 # SCS documentation
 
-[Here](GettingStarted.md) you find documention how to use SCS as a developer / user.
+[Here](GettingStarted.MD) you find documention how to use SCS as a developer / user.
 
 If you are looking how to get started with setting up your own SCS infrastructure,
 please look [here](https://docs.osism.de/) at the OSISM docs for a physical deployment or
