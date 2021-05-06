@@ -86,7 +86,7 @@ dnf install python-openstackclient
 ### RPM Based Family (Red Hat Enterprise Linux 7, CentOS 7)
 
 ```console
-yum install centos-release-openstack-Victoria;
+yum install centos-release-openstack-victoria;
 yum config-manager --set-enabled PowerTools;
 yum install python-openstackclient
 ```
