@@ -1,6 +1,6 @@
 ---
 title:  Getting Started Gaia-X Demonstrator @ PlusServer
-version: 2020-11-05-001
+version: 2021-05-006-001
 author: Mathias Fechner
 
 ---
@@ -11,14 +11,14 @@ author: Mathias Fechner
 
 ## URLs for access
 
- + UI (Horizon): https://gx-scs.okeanos.dev/
- + auth_url (Keystone): https://gx-scs.okeanos.dev:5000
- + keycloak_url: https://gx-iam.okeanos.dev:5000
- + S3 endpoint (same as swift from catalog): https://gx-scs.okeanos.dev:8080
+ + UI (Horizon): https://ui.gx-scs.sovereignit.cloud/
+ + auth_url (Keystone): https://api.gx-scs.sovereignit.cloud:5000
+ + keycloak_url: https://iam.gx-scs.sovereignit.cloud
+ + S3 endpoint (same as swift from catalog):https://api.gx-scs.sovereignit.cloud:8080
 
 ## Software Components
 
-### Openstack U - Release (Ussuri)
+### Openstack V - Release (Victoria)
 
  + Core Components (Keystone - auth, Cinder - block storage,
    Nova - compute, Glance - images, Neutron - networking)
