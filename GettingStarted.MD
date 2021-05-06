@@ -86,7 +86,7 @@ dnf install python-openstackclient
 ### RPM Based Family (Red Hat Enterprise Linux 7, CentOS 7)
 
 ```console
-yum install centos-release-openstack-ussuri;
+yum install centos-release-openstack-Victoria;
 yum config-manager --set-enabled PowerTools;
 yum install python-openstackclient
 ```
@@ -94,7 +94,7 @@ yum install python-openstackclient
 ### SuSE
 
 ```console
-#zypper ar -f obs://Cloud:OpenStack:Ussuri/ Cloud:OpenStack:Ussuri
+#zypper ar -f obs://Cloud:OpenStack:Victoria/ Cloud:OpenStack:Victoria
 zypper install python-PROJECTclient
 ```
 
