@@ -1,3 +1,6 @@
+> **Warning**
+> Archived and merged into the [Docs](https://github.com/SovereignCloudStack/Docs) repository.
+
 # SCS documentation
 
 [Here](GettingStarted.MD) you find documention how to use SCS as a developer / user.
